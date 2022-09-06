@@ -1,0 +1,4 @@
+#!/
+
+bin/bash
+head -10 /ect/passwd
