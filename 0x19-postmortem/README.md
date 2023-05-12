@@ -10,21 +10,21 @@
 
 #### Summary
 
-On September 11th, 2018 at midnight the server access went down resulting in 504 error for anyone trying to access a website. Background on the server being based on a LAMP stack.
+On mAY 12th, 2023 at midnight the server access went down resulting in 504 error for anyone trying to access a website. Background on the server being based on a LAMP stack.
 
 #### Timeline
 
-- **00:00 PST** - 500 error for anyone trying to access the website
-- **00:05 PST** - Ensuring Apache and MySQL are up and running.
-- **00:10 PST** - The website was not loading properly which on background check revealed that the server was working properly as well as the database.
-- **00:12 PST** - After quick restart to Apache server returned a status of 200 and OK while trying to curl the website.
-- **00:18 PST** - Reviewing error logs to check where the error might be coming from.
-- **00:25 PST** - Check /var/log to see that the Apache server was being prematurely shut down. The error log for PHP were nowhere to be found.
-- **00:30 PST** - Checking php.ini settings revealed all error logging had been turned off. Turning the error logging on.
-- **00:32 PST** - Restarting apache server and going to the error logs to check what is being logged into the php error logs.
-- **00:36 PST** - Reviewing error logs for php revealed a mistyped file name which was resulting in incorrect loading and premature closing of apache.
-- **00:38 PST** - Fixing file name and restarting Apache server.
-- **00:40 PST** - Server is now running normally and the website is loading properly.
+- **00:00 EST** - 500 error for anyone trying to access the website
+- **00:05 EST** - Ensuring Apache and MySQL are up and running.
+- **00:10 EST** - The website was not loading properly which on background check revealed that the server was working properly as well as the database.
+- **00:12 EST** - After quick restart to Apache server returned a status of 200 and OK while trying to curl the website.
+- **00:18 EST** - Reviewing error logs to check where the error might be coming from.
+- **00:25 EST** - Check /var/log to see that the Apache server was being prematurely shut down. The error log for PHP were nowhere to be found.
+- **00:30 EST** - Checking php.ini settings revealed all error logging had been turned off. Turning the error logging on.
+- **00:32 EST** - Restarting apache server and going to the error logs to check what is being logged into the php error logs.
+- **00:36 EST** - Reviewing error logs for php revealed a mistyped file name which was resulting in incorrect loading and premature closing of apache.
+- **00:38 EST** - Fixing file name and restarting Apache server.
+- **00:40 EST** - Server is now running normally and the website is loading properly.
 
 
 #### Root Cause and Resolution
