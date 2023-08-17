@@ -1,25 +1,25 @@
-# Configures Nginx to serve the route /airbnb-onepage/ from AirBnB_clone_v2.
-
 server {
-    # Listen on port 80
-    listen      80 default_server;
-    listen      [::]:80 default_server ipv6only=on;
+    listen 80;
+    server_name 127.0.0.1 35.190.188.208;
 
-    # Use IP of server as domain name
-    server_name 104.196.168.90;
-
-    # Customize HTTP response header
-    add_header  X-Served-By 375-web-01;
-
-    # Serve /airbnb-onepage/ route from AirBnB_clone_v2
-    location = /airbnb-onepage/ {
-        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    location /airbnb-onepage/ {
+        include proxy_params;
+	proxy_pass http://localhost:5000/airbnb-onepage/;
     }
 
-    # 404 error page
-    error_page 404 /404.html;
-    location /404 {
-        root /var/www/html;
-        internal;
+    location /airbnb-dynamic/number_odd_or_even/ {
+        rewrite /airbnb-dynamic/(.*) $1 break;
+        include proxy_params;
+	proxy_pass http://localhost:5001/;
+    }
+
+    location /api/ {
+        include proxy_params;
+	proxy_pass http://localhost:5002/api/;
+    }
+
+    location / {
+        include proxy_params;
+	proxy_pass http://localhost:5003/;
     }
 }
